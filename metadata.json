@@ -1,0 +1,8 @@
+{
+  "name": "smbios-thermal-ctl",
+  "description": "smbios-thermal-ctl",
+  "url": "https://github.com/SebastianLuebke/smbios-thermal-ctl",
+  "uuid": "smbiosthermalctl@luebke.io",
+  "shell-version": ["3.36"],
+  "version": 1
+}
