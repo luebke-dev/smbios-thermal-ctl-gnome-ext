@@ -3,8 +3,8 @@ I use this for setting the smbios thermal mode on my Dell XPS13 2-in-1 7390.
 
 ![Screenshot](screenshots/menu.png)
 
-## FAQ
-### Is therea way to set smbios mode without having to enter the admin passwort?
+## FAQ 
+### Is therea way to set smbios mode without having to enter the admin password?
 Currently this is impossible. Thermal calls aren't whitelisted in the linux kernel. Check https://github.com/dell/libsmbios/issues/68 for further informations.
 
 ## Installation
