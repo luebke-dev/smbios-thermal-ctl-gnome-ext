@@ -13,3 +13,7 @@ git clone https://github.com/SebastianLuebke/smbios-thermal-ctl-gnome-ext.git ~/
 ```
 
 reload gnome by pressing alt + F2 and enter r
+
+### extensions.gnome.org
+
+https://extensions.gnome.org/extension/3276/smbios-thermal-ctl/
