@@ -7,12 +7,31 @@ const St = imports.gi.St;
 
 const ExtensionUtils = imports.misc.extensionUtils;
 const Me = ExtensionUtils.getCurrentExtension();
+const MessageTray = imports.ui.messageTray;
 const Main = imports.ui.main;
 const PanelMenu = imports.ui.panelMenu;
 const Util = imports.misc.util;
 
 const Config = imports.misc.config;
 const SHELL_MINOR = parseInt(Config.PACKAGE_VERSION.split(".")[1]);
+
+function sendNotification(message) {
+  let title = 'smbios-thermal mode changed';
+
+  let notifSource = new MessageTray.SystemNotificationSource();
+  notifSource.createIcon = function () {
+    return new St.Icon({ icon_name: 'sensors-fan-symbolic' });
+  };
+
+  notifSource.connect('destroy', function () { notifSource = null; });
+  Main.messageTray.add(notifSource);
+
+  let notification = null;
+
+  notification = new MessageTray.Notification(notifSource, title, message);
+  notification.addAction('Show updates', null);
+  notifSource.notify(notification);
+}
 
 var SMBiosIndicator = class SMBiosIndicator extends PanelMenu.Button {
   _init() {
@@ -57,7 +76,7 @@ var SMBiosIndicator = class SMBiosIndicator extends PanelMenu.Button {
           if (!proc.get_successful()) throw new Error(stderr);
 
           // Success
-          log(stdout);
+          sendNotification("Thermal mode successfully set to " + mode + ".")
         } catch (e) {
           logError(e);
         }
