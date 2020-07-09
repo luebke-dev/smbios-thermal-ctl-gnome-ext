@@ -1,0 +1,9 @@
+
+.fan-background-symbolic {
+	/*-gtk-icon-source: url("fan.png");*/
+	/*-gtk-icon-source: -gtk-recolor(url("fan.png"));*/
+	background-image: url("fan.png");
+	height: 16px;
+	width: 16px;
+}
+

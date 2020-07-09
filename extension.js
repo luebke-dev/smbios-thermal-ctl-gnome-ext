@@ -38,8 +38,7 @@ var SMBiosIndicator = class SMBiosIndicator extends PanelMenu.Button {
     super._init(0.0, `${Me.metadata.name} Indicator`, false);
 
     let icon = new St.Icon({
-      gicon: new Gio.ThemedIcon({ name: "sensors-fan-symbolic" }),
-      style_class: "system-status-icon",
+      style_class: "system-status-icon fan-background-symbolic",
     });
     this.actor.add_child(icon);
 
