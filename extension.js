@@ -20,7 +20,7 @@ function sendNotification(message) {
 
   let notifSource = new MessageTray.SystemNotificationSource();
   notifSource.createIcon = function () {
-    return new St.Icon({ icon_name: 'sensors-fan-symbolic' });
+    return new St.Icon({ style_class: "system-status-icon fan-background-symbolic-notification" });
   };
 
   notifSource.connect('destroy', function () { notifSource = null; });
@@ -29,7 +29,6 @@ function sendNotification(message) {
   let notification = null;
 
   notification = new MessageTray.Notification(notifSource, title, message);
-  notification.addAction('Show updates', null);
   notifSource.notify(notification);
 }
 

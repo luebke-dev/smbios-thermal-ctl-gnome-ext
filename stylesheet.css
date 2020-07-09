@@ -7,3 +7,11 @@
 	width: 16px;
 }
 
+.fan-background-symbolic-notification {
+	/*-gtk-icon-source: url("fan.png");*/
+	/*-gtk-icon-source: -gtk-recolor(url("fan.png"));*/
+	background-image: url("fan.png");
+	height: 48px;
+	width: 48px;
+}
+
