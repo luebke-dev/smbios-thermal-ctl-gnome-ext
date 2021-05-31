@@ -13,6 +13,7 @@ const PanelMenu = imports.ui.panelMenu;
 const Util = imports.misc.util;
 
 const Config = imports.misc.config;
+const SHELL_MAJOR = parseInt(Config.PACKAGE_VERSION.split(".")[0]);
 const SHELL_MINOR = parseInt(Config.PACKAGE_VERSION.split(".")[1]);
 
 function sendNotification(message) {
@@ -85,7 +86,7 @@ var SMBiosIndicator = class SMBiosIndicator extends PanelMenu.Button {
   }
 };
 
-if (SHELL_MINOR > 30) {
+if (SHELL_MAJOR >= 40 || (SHELL_MAJOR <= 3 && SHELL_MINOR > 30)) {
   SMBiosIndicator = GObject.registerClass(
     { GTypeName: "SMBiosIndicator" },
     SMBiosIndicator
